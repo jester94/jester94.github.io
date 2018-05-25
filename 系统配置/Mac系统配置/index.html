@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Mac系统配置 - 我的个人笔记</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">我的个人笔记</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Welcome to MkDocs</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">系统配置 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../Docker-Ubuntu-Python3/">Docker Ubuntu Python3</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Mac系统配置</a>
+</li>
+                            
+<li >
+    <a href="../Ubuntu系统配置(虚拟机)/">Ubuntu系统配置(虚拟机)</a>
+</li>
+                            
+<li >
+    <a href="../talib安装/">Talib安装</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../Docker-Ubuntu-Python3/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../Ubuntu系统配置(虚拟机)/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#mac-ignoretrue">Mac系统配置 {ignore=true}</a></li>
+            <li><a href="#_1">让一切顺利进行的前提——佛跳墙[翻墙]</a></li>
+            <li><a href="#1">1. 必备软件</a></li>
+            <li><a href="#2-homebrew">2. Homebrew安装</a></li>
+            <li><a href="#3-iterm2oh-my-zsh">3. 安装iterm2+oh-my-zsh</a></li>
+            <li><a href="#4-vscode">4. VScode安装和配置</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="mac-ignoretrue">Mac系统配置 {ignore=true}</h2>
+<p><strong>文件更新时间：20180417</strong></p>
+<p>目录：</p>
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+<ul>
+<li><a href="#让一切顺利进行的前提佛跳墙翻墙">让一切顺利进行的前提——佛跳墙[翻墙]</a></li>
+<li><a href="#1-必备软件">1. 必备软件</a></li>
+<li><a href="#2-homebrew安装">2. Homebrew安装</a></li>
+<li><a href="#3-安装iterm2oh-my-zsh">3. 安装iterm2+oh-my-zsh</a></li>
+<li><a href="#4-vscode安装和配置">4. VScode安装和配置</a></li>
+</ul>
+<!-- /code_chunk_output -->
+
+<hr />
+<h4 id="_1">让一切顺利进行的前提——佛跳墙[翻墙]</h4>
+<ul>
+<li>服务端：租用VPN，架设SS服务器</li>
+<li>客户端：访问<a href="../github.com">Github</a>然后搜索Most Star的shadowsocks<ul>
+<li>详细见印象笔记20180416记录《MAC命令行终端下…》，或查看<a href="https://lvii.gitbooks.io/outman/content/ss.mac.html">在线教程</a></li>
+<li>教程内SS客户端的下载地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/">Mac新版客户端</a></li>
+<li><strong>让Mac命令行翻墙</strong>，<a href="http://iamzyp.com/2017/09/05/Mac命令行终端下使用shadowsocks翻墙/">教程地址</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="1">1. 必备软件</h4>
+<ul>
+<li>[x] <a href="https://brew.sh/index_zh-cn">Homebrew</a> #软件管理工具</li>
+<li>[x] iterm2 &amp; <a href="http://ohmyz.sh">oh-my-zsh</a> #高级版命令行</li>
+<li>[x] <a href="https://code.visualstudio.com/download">VScode</a> #微软神一般的编辑器，通过插件支持Python、Markdown等等等...</li>
+<li>[x] Dash #文档工具</li>
+<li>[x] Xmind #思维导图工具</li>
+<li>[ ] Aria2 #下载器</li>
+<li>[ ] MD文件的发布，考虑Hugo和MkDocs，选型参考<a href="https://staticsitegenerators.net">Static Site Generators</a></li>
+<li>[x] VLC #视频播放</li>
+</ul>
+<h4 id="2-homebrew">2. Homebrew安装</h4>
+<ul>
+<li>首先安装Homebrew</li>
+<li>Homebrew是什么？用Homebrew官网上的一句话介绍
+    &gt;“使用 Homebrew 安装 Apple 没有预装但 你需要的东西。”</li>
+<li>也就是说Homebrew是一个第三方的Mac软件安装、管理工具。</li>
+<li>Homebrew的安装需要在Mac终端（命令行）进行，直接在本机终端内，复制黏贴官网给出的命令然后回车执行即可，官网给出的命令如下</li>
+</ul>
+<pre><code class="bash">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+
+<h4 id="3-iterm2oh-my-zsh">3. 安装iterm2+oh-my-zsh</h4>
+<ul>
+<li>使用Homebrew cask（cask用来安装Mac下的图形化软件）安装iterm2</li>
+</ul>
+<pre><code class="bash">brew cask install iterm2
+</code></pre>
+
+<ul>
+<li>样式调整：打开iterm2后，按快捷键<code>command,</code> 打开属性菜单，选择Profiles - 通过Colors（调整主题配色）| Text（调整字体）选项卡进行相应设置，<strong>需要注意左侧的Profiles Name栏，调整都要针对当前默认配置进行（有星标的），否则，进行的调整不会有任何变化</strong></li>
+<li>安装oh-my-zsh</li>
+</ul>
+<pre><code class="bash">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre>
+
+<ul>
+<li>通过<code>cat /etc/shells</code>命令可以查看当前系统可以使用哪些shell</li>
+<li><strong>切换系统默认shell</strong>，如果当前的shell不是zsh，我们可以通过<code>chsh -s /bin/zsh</code>命令将shell切换为zsh，终端重启之后即可生效</li>
+<li>安装成功之后，我们可以通过终端命令<code>vi ~/.zshrc</code>打开隐藏的配置文件，编辑设置<code>ZSH_THEME="agnoster"</code>对主题进行修改</li>
+<li><strong>注意，agnoster主题能否设置成功，还依赖于以下东西：</strong><ul>
+<li>下载完成之后解压，在iTerm2的Preferences——Profiles——colors——Load Presets——Solarized Dark即可设置终端配色 http://ethanschoonover.com/solarized</li>
+<li>下载、安装Powerline 对应的字体库
+<code>bash
+git clone https://github.com/powerline/fonts.git</code></li>
+<li>下载后，进入目录，执行其中的install.sh文件，命令：<code>./install.sh</code>，然后在iTerm2的Preferences——Profiles——Text中同时将Regular Font和Non—ASCII Font设置为Meslo LG M DZ Regular for Powerline即可</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-vscode">4. VScode安装和配置</h4>
+<ul>
+<li>在微软官网下载VScode，然后安装就好了</li>
+<li>安装完毕后打开VScode，VScode需要安装各种插件才能发挥神一般的能力。在欢迎页面的自定义栏目，可以对语言、快捷键和主题做设置，希望设置什么就点击相应的栏目就可以了</li>
+<li>VScode的插件默认是按照下载量降序显示的，常规插件就不提了，这里重点推荐一款Markdown插件，简直神了，支持实时预览，通过第三方插件可以导出、导入多种类型的文件，关键是这个插件有中文文档，学习如何使用简直不要太简单<ul>
+<li>插件名称：Markdown Preview Enhanced</li>
+<li><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/">在线手册</a>
+@import "https://user-images.githubusercontent.com/1908863/28227953-eb6eefa4-68a1-11e7-8769-96ea83facf3b.png" </li>
+</ul>
+</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>
