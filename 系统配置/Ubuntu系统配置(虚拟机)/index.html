@@ -46,22 +46,22 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href="../..">Welcome to MkDocs</a>
+                        <a href="../..">Welcome</a>
                     </li>
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">系统配置 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Docker-Ubuntu-Python3/">Docker Ubuntu Python3</a>
-</li>
-                            
-<li >
-    <a href="../Git简单实用/">Git简单实用</a>
+    <a href="../Docker简单入门，创建Python、Mysql开发环境/">Docker简单入门，创建Python、Mysql开发环境</a>
 </li>
                             
 <li >
     <a href="../Mac系统配置/">Mac系统配置</a>
+</li>
+                            
+<li >
+    <a href="../Talib安装/">Talib安装</a>
 </li>
                             
 <li class="active">
@@ -69,7 +69,7 @@
 </li>
                             
 <li >
-    <a href="../talib安装/">Talib安装</a>
+    <a href="../使用Mkdocs、Github搭建博客/">使用Mkdocs、Github搭建博客</a>
 </li>
                         </ul>
                     </li>
@@ -82,12 +82,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Mac系统配置/">
+                        <a rel="next" href="../Talib安装/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../talib安装/">
+                        <a rel="prev" href="../使用Mkdocs、Github搭建博客/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -101,183 +101,223 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#ubuntu">Ubuntu 系统及软件开发环境配置</a></li>
             <li><a href="#1">1. 新系统安装完毕后，进行更新</a></li>
-            <li><a href="#2-atomatomubuntu">2. ~~卸载Atom，Atom在Ubuntu的虚拟环境里面运行，简直太慢了~~</a></li>
+            <li><a href="#2-atomatomubuntu">2. 卸载Atom，Atom在Ubuntu的虚拟环境里面运行，简直太慢了</a></li>
             <li><a href="#3-anaconda">3. 安装Anaconda</a></li>
             <li><a href="#4-jupyter-notebook">4. 配置使用Jupyter Notebook</a></li>
             <li><a href="#5-mysqlgui">5. 安装配置Mysql及GUI工具</a></li>
-        <li class="main "><a href="#bind-address-127001">找到将bind-address = 127.0.0.1注销​</a></li>
-        <li class="main "><a href="#bind-address-127001_1">bind-address            = 127.0.0.1</a></li>
-        <li class="main "><a href="#mysql">修改后，重启MySQL服务器</a></li>
-        <li class="main "><a href="#_1">重新登录</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h2 id="ubuntu">Ubuntu 系统及软件开发环境配置</h2>
-<p><strong>文件更新时间：20180417</strong>
-<strong>系统版本：Ubuntu 17.10.1</strong></p>
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-<ul>
-<li><a href="#ubuntu-系统及软件开发环境配置">Ubuntu 系统及软件开发环境配置</a>
-        * <a href="#1-新系统安装完毕后进行更新">1. 新系统安装完毕后，进行更新</a>
-        * <a href="#2-~~卸载atomatom在ubuntu的虚拟环境里面运行简直太慢了~~">2. ~~卸载Atom，Atom在Ubuntu的虚拟环境里面运行，简直太慢了~~</a>
-        * <a href="#3-安装anaconda">3. 安装Anaconda</a>
-        * <a href="#4-配置使用jupyter-notebook">4. 配置使用Jupyter Notebook</a>
-        * <a href="#5-安装配置mysql及gui工具">5. 安装配置Mysql及GUI工具</a></li>
-</ul>
-<!-- /code_chunk_output -->
-
+<p><strong>更新时间：20180417</strong></p>
+<hr />
+<p>系统版本：Ubuntu 17.10.1</p>
 <h4 id="1">1. 新系统安装完毕后，进行更新</h4>
 <ul>
 <li>1.1. 调整软件源到国内，例如<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">清华</a><ul>
-<li>Ubuntu 的软件源配置文件是 /etc/apt/sources.list。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 TUNA 的软件源镜像
-    <code>bash
-    # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-updates main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-updates main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-backports main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-backports main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-security main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-security main restricted universe multiverse</code></li>
+<li>Ubuntu 的软件源配置文件是 /etc/apt/sources.list。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 TUNA 的软件源镜像</li>
 </ul>
 </li>
-<li>1.2. 更新Ubuntu系统
-    <code>bash
-    sudo apt-get update
-    sudo apt-get upgrade</code></li>
 </ul>
-<h4 id="2-atomatomubuntu">2. ~~卸载Atom，Atom在Ubuntu的虚拟环境里面运行，简直太慢了~~</h4>
-<pre><code>```bash
-sudo apt-get remove atom
+<pre><code class="bash"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ zesty-security main restricted universe multiverse
+</code></pre>
+
+<ul>
+<li>1.2. 更新Ubuntu系统</li>
+</ul>
+<pre><code class="bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p><br/></p>
+<h4 id="2-atomatomubuntu">2. 卸载Atom，Atom在Ubuntu的虚拟环境里面运行，简直太慢了</h4>
+<pre><code class="bash">sudo apt-get remove atom
 sudo add-apt-repository --remove ppa:webupd8team/atom
 # 以上只会卸载该软件，要卸载附加的一些软件包，需要用以下命令卸载多余的软件包：
 sudo apt-get autoremove
-```
 </code></pre>
+
+<p><br/></p>
 <h4 id="3-anaconda">3. 安装Anaconda</h4>
-<p>版本：Anaconda3-5.1.0-Linux-x86_64
-- 3.1. 修改Anaconda的软件源，增加<a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">清华Anaconda</a>源，可以将以下命令写入一个sh文件，然后批量执行
-    ```bash
-    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</p>
-<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+<p>版本：Anaconda3-5.1.0-Linux-x86_64</p>
+<ul>
+<li>3.1. 修改Anaconda的软件源，增加<a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">清华Anaconda</a>源，可以将以下命令写入一个sh文件，然后批量执行</li>
+</ul>
+<pre><code class="bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 
 conda config --set show_channel_urls yes
-```
-- #后期更新Anaconda，可能会遇到权限不够的情况，而使用sudo命令对conda无效，需要提前给当前用户操作Anaconda目录授权，然后再执行更新
 </code></pre>
-<p><code>sudo chown -R username anaconda-foldername</code>
-    - 更新conda
-    <code>conda update conda</code>
-- 3.2. conda创建虚拟环境等常用命令
-    - 3.2.1. 查看现有虚拟环境
-    <code>conda info -e</code>
-    - 3.2.2. 创建新虚拟环境
-    <code>conda create -n py35 python=3.5 numpy pandas</code>
-    #命令说明，-n参数表示要创建一个新的env环境，环境的名字叫py35，python=3.5表示希望安装的python版本是3.5，最后，在创建新环境的同时安装numpy和pandas两个包
-    - 3.3.3. 激活并进入env
-    <code>source activate py35</code>
-    - 3.3.4. 退出env
-    <code>source deactivate</code>
-    - 3.3.5. 删除一个名称为py35的env
-    <code>conda remove -n py35 --all</code></p>
+
+<ul>
+<li>
+<p>后期更新Anaconda，可能会遇到权限不够的情况，而使用sudo命令对conda无效，需要提前给当前用户操作Anaconda目录授权，然后再执行更新
+<code>sudo chown -R username anaconda-foldername</code></p>
+</li>
+<li>
+<p>更新conda
+    <code>conda update conda</code></p>
+</li>
+<li>
+<p>3.2. conda创建虚拟环境等常用命令</p>
+<ul>
+<li>3.2.1. 查看现有虚拟环境
+<code>conda info -e</code></li>
+<li>3.2.2. 创建新虚拟环境
+<code>conda create -n py35 python=3.5 numpy pandas</code></li>
+</ul>
+<p>命令说明，-n参数表示要创建一个新的env环境，环境的名字叫py35，python=3.5表示希望安装的python版本是3.5，最后，在创建新环境的同时安装numpy和pandas两个包
+- 3.3.3. 激活并进入env
+<code>source activate py35</code>
+- 3.3.4. 退出env
+<code>source deactivate</code>
+- 3.3.5. 删除一个名称为py35的env
+<code>conda remove -n py35 --all</code></p>
+</li>
+</ul>
+<p><br/></p>
 <h4 id="4-jupyter-notebook">4. 配置使用Jupyter Notebook</h4>
-<p><strong>Jupyter Notebook(后续简称JN)不需要在env环境内启动，在JN内可以配置对多个env环境的支持</strong>
-- 4.1. 生成Jupyter Notebook的配置文件，配置文件默认保存在用户目录的.jupyter目录下
-<code>jupyter notebook --generate-config</code>
-- 4.2. 生成JN的访问密码（后续写配置文件、登录Jupyter notebook需要），如果只是自己本机使用，这个步骤是不需要的，但如果是在外网环境，又不希望别人访问JN服务，最好给JN设置上密码
-    - 打开python终端，生成sha1的密钥
-    <code>python
-    from IPython.lib import passwd
-    passwd()
-    Enter password: 
-    Verify password: 
-    Out[2]: 'sha1:0e422dfccef2:84cfbcbb3ef95872fb8e23be3999c123f862d856' 
-- - 修改Jupyter Notebook的默认配置文件</code>bash
-    vim ~/.jupyter/jupyter_notebook_config.py 
-    #进行如下修改（这里可以自行配置）：
-    c.NotebookApp.ip='<em>' #改为</em>号，即允许外网ip访问，否则，只有设定的ip才有访问的权限
-    c.NotebookApp.password = u'sha:ce...刚才复制的那个密文'
-    c.NotebookApp.open_browser = False #启动JN时，是否自动打开浏览器，默认为True，即自动打开浏览器，
-    c.NotebookApp.port =8888 #指定访问JN服务的端口号
-    c.IPKernelApp.pylab = 'inline' #所有matplotlib的图像都通过iline的方式显示
-- 4.3. Ubuntu架设JN的服务器后
-<code>nohup jupyter notebook &amp;</code>
-- 4.4. Mac通过ssh映射端口访问JN服务，<strong><em>如果在JN的配置文件内设置了c.NotebookApp.ip='</em>' ，并且客户端和服务端处于同一网段内，则不需要通过ssh映射的方式，即可通过ip:端口号访问JN服务</strong>
-<code>ssh -N -f -L localhost:8800:localhost:8888 10.211.55.11</code>
-- 4.5. 配置Jupyter Notebook多个Conda Env环境
-    - 需要安装ipykernel：
-    <code>conda install ipykernel</code>
-    - 首先激活对应的conda环境：
-    <code>source activate 环境名称</code>
-    - 将环境写入notebook的kernel中：
-    <code>bash
-    python -m ipykernel install --user --name 环境名称 --display-name "(JN显示的环境名称)"</code>
-- 4.6. 调整JN的样式
-    - 使用<a href="https://github.com/dunovank/jupyter-themes">jupyterthemes</a>安装样式
-    <code>pip install --upgrade jupyterthemes</code>
-    - 常用命令
-    <code>bash
-    # list available themes
-    jt -l
-    # select theme...
-    jt -t chesterish</code>
-    - 使用样式
-    <code>bash
-    jt -t oceans16 -fs 11 -nfs 11 -tfs 11 -lineh 150 -cellw 980
-    # Code Font-Size -fs;Notebook Font Size -nfs;Text/MD Cell Fontsize -tfs;Line Height -lineh;Toolbar Visible -T;Reset Default Theme -r;Cell Width -cellw</code></p>
+<p><strong>Jupyter Notebook(后续简称JN)不需要在env环境内启动，在JN内可以配置对多个env环境的支持</strong></p>
+<ul>
+<li>
+<p>4.1. 生成Jupyter Notebook的配置文件，配置文件默认保存在用户目录的.jupyter目录下
+<code>jupyter notebook --generate-config</code></p>
+</li>
+<li>
+<p>4.2. 生成JN的访问密码（后续写配置文件、登录Jupyter notebook需要），如果只是自己本机使用，这个步骤是不需要的，但如果是在外网环境，又不希望别人访问JN服务，最好给JN设置上密码</p>
+<ul>
+<li>打开python终端，生成sha1的密钥</li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">from IPython.lib import passwd
+passwd()
+Enter password: 
+Verify password: 
+Out[2]: 'sha1:0e422dfccef2:84cfbcbb3ef95872fb8e23be3999c123f862d856' 
+
+- - 修改Jupyter Notebook的默认配置文件
+```linux
+vim ~/.jupyter/jupyter_notebook_config.py 
+#进行如下修改（这里可以自行配置）：
+c.NotebookApp.ip='*' #改为*号，即允许外网ip访问，否则，只有设定的ip才有访问的权限
+c.NotebookApp.password = u'sha:ce...刚才复制的那个密文'
+c.NotebookApp.open_browser = False #启动JN时，是否自动打开浏览器，默认为True，即自动打开浏览器，
+c.NotebookApp.port =8888 #指定访问JN服务的端口号
+c.IPKernelApp.pylab = 'inline' #所有matplotlib的图像都通过iline的方式显示
+</code></pre>
+
+<ul>
+<li>4.3. Ubuntu架设JN的服务器后
+<code>nohup jupyter notebook &amp;</code></li>
+<li>4.4. Mac通过ssh映射端口访问JN服务，<strong><em>如果在JN的配置文件内设置了c.NotebookApp.ip='</em>' ，并且客户端和服务端处于同一网段内，则不需要通过ssh映射的方式，即可通过ip:端口号访问JN服务</strong>
+<code>ssh -N -f -L localhost:8800:localhost:8888 10.211.55.11</code></li>
+<li>4.5. 配置Jupyter Notebook多个Conda Env环境<ul>
+<li>需要安装ipykernel：
+<code>conda install ipykernel</code></li>
+<li>首先激活对应的conda环境：
+<code>source activate 环境名称</code></li>
+<li>将环境写入notebook的kernel中：</li>
+</ul>
+</li>
+</ul>
+<pre><code class="bash">python -m ipykernel install --user --name 环境名称 --display-name &quot;(JN显示的环境名称)&quot;
+</code></pre>
+
+<ul>
+<li>4.6. 调整JN的样式<ul>
+<li>使用<a href="https://github.com/dunovank/jupyter-themes">jupyterthemes</a>安装样式
+<code>pip install --upgrade jupyterthemes</code></li>
+<li>常用命令</li>
+</ul>
+</li>
+</ul>
+<pre><code class="bash"># list available themes
+jt -l
+# select theme...
+jt -t chesterish
+</code></pre>
+
+<ul>
+<li>
+<ul>
+<li>使用样式</li>
+</ul>
+</li>
+</ul>
+<pre><code class="bash">jt -t oceans16 -fs 11 -nfs 11 -tfs 11 -lineh 150 -cellw 980
+# Code Font-Size -fs;Notebook Font Size -nfs;Text/MD Cell Fontsize -tfs;Line Height -lineh;Toolbar Visible -T;Reset Default Theme -r;Cell Width -cellw
+</code></pre>
+
+<p><br/></p>
 <h4 id="5-mysqlgui">5. 安装配置Mysql及GUI工具</h4>
-<p>Mysql版本：5.7.21
-- 5.1. 安装：
-<code>sudo apt-get install mysql-server mysql-client</code>
-- 5.2. 常用操作：
-    - 登录 <code>mysql -uroot -p</code>
-    - 检查MySQL服务器占用端口 <code>netstat -nlt|grep 3306</code>
-    - 检查MySQL服务器系统进程 <code>ps -aux|grep mysql</code>
-    - 查看数据库的字符集编码 <code>show variables like '%char%';</code>
-- 5.3. 配置、修改字符集编码：
-    ```bash
-    # 修改/etc/mysql/mysql.conf.d/mysqld.cnf 文件
-    # 在　[mysqld] 下面加入：
-    character-set-client-handshake = FALSE
-    character-set-server = utf8
-    collation-server = utf8_unicode_ci
-    init_connect='SET NAMES utf8'</p>
-<pre><code># 修改mysql.cnf文件：
+<p>Mysql版本：5.7.21</p>
+<ul>
+<li>5.1. 安装：
+<code>sudo apt-get install mysql-server mysql-client</code></li>
+<li>5.2. 常用操作：<ul>
+<li>登录 <code>mysql -uroot -p</code></li>
+<li>检查MySQL服务器占用端口 <code>netstat -nlt|grep 3306</code></li>
+<li>检查MySQL服务器系统进程 <code>ps -aux|grep mysql</code></li>
+<li>查看数据库的字符集编码 <code>show variables like '%char%';</code></li>
+</ul>
+</li>
+<li>5.3. 配置、修改字符集编码：</li>
+</ul>
+<pre><code class="bash"># 修改/etc/mysql/mysql.conf.d/mysqld.cnf 文件
+# 在　[mysqld] 下面加入：
+character-set-client-handshake = FALSE
+character-set-server = utf8
+collation-server = utf8_unicode_ci
+init_connect='SET NAMES utf8'
+
+# 修改mysql.cnf文件：
 sudo gedit /etc/mysql/conf.d/mysql.cnf
 
 # 在[mysql]下方加入：
 default-character-set = utf8
-```
-修改后重启，简单的方法，重启Ubuntu，汗
+</code></pre>
+
+<pre><code>修改后重启，简单的方法，重启Ubuntu，汗
 </code></pre>
 <ul>
 <li>
-<p>5.4. 让MySQL服务器被远程访问
-    修改mysql配置文件及增加用户访问权限
-    ```bash
-    # 注意：不同 mysql 版本此配置文件位置和名字可能不同
-    sudo vim /etc/mysql/my.cnf</p>
-<h1 id="bind-address-127001">找到将bind-address = 127.0.0.1注销​</h1>
-<h1 id="bind-address-127001_1">bind-address            = 127.0.0.1</h1>
-<h1 id="mysql">修改后，重启MySQL服务器</h1>
-<p>sudo /etc/init.d/mysql restart</p>
-<h1 id="_1">重新登录</h1>
-<p>mysql -uroot -p
-grant all privileges on <em>.</em> to 'root'@'%' identified by 'xxxxxx';
-flush privileges;
-```
-- 5.5. 安装Mysql Workbench，<a href="https://dev.mysql.com/downloads/workbench/">官网下载</a></p>
+<p>5.4. 让MySQL服务器被远程访问</p>
+<p>修改mysql配置文件及增加用户访问权限</p>
 </li>
+</ul>
+<pre><code class="bash"># 注意：不同 mysql 版本此配置文件位置和名字可能不同
+sudo vim /etc/mysql/my.cnf
+
+# 找到将bind-address = 127.0.0.1注销​
+#bind-address            = 127.0.0.1
+
+# 修改后，重启MySQL服务器
+sudo /etc/init.d/mysql restart
+
+#重新登录
+mysql -uroot -p
+grant all privileges on *.* to 'root'@'%' identified by 'xxxxxx';
+flush privileges;
+</code></pre>
+
+<ul>
+<li>5.5. 安装Mysql Workbench，<a href="https://dev.mysql.com/downloads/workbench/">官网下载</a></li>
 </ul></div>
         </div>
 

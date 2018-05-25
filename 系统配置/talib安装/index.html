@@ -46,30 +46,30 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                     <li >
-                        <a href="../..">Welcome to MkDocs</a>
+                        <a href="../..">Welcome</a>
                     </li>
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">系统配置 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Docker-Ubuntu-Python3/">Docker Ubuntu Python3</a>
-</li>
-                            
-<li >
-    <a href="../Git简单实用/">Git简单实用</a>
+    <a href="../Docker简单入门，创建Python、Mysql开发环境/">Docker简单入门，创建Python、Mysql开发环境</a>
 </li>
                             
 <li >
     <a href="../Mac系统配置/">Mac系统配置</a>
 </li>
                             
+<li class="active">
+    <a href="./">Talib安装</a>
+</li>
+                            
 <li >
     <a href="../Ubuntu系统配置(虚拟机)/">Ubuntu系统配置(虚拟机)</a>
 </li>
                             
-<li class="active">
-    <a href="./">Talib安装</a>
+<li >
+    <a href="../使用Mkdocs、Github搭建博客/">使用Mkdocs、Github搭建博客</a>
 </li>
                         </ul>
                     </li>
@@ -82,12 +82,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Ubuntu系统配置(虚拟机)/">
+                        <a rel="next" href="../Mac系统配置/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../Ubuntu系统配置(虚拟机)/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -100,8 +100,7 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#ta-lib">TA-Lib安装</a></li>
-            <li><a href="#ta-lib_1">多次遇到ta-lib安装问题，这次将安装的步骤和方法纪录下来，方便以后</a></li>
-            <li><a href="#talibta-lib">talib安装时拼写方法——TA-Lib</a></li>
+            <li><a href="#talibta-lib">talib安装时拼写方法'TA-Lib'</a></li>
             <li><a href="#_1">软件环境</a></li>
             <li><a href="#docker">已安装的依赖库(Docker环境配置方法)</a></li>
             <li><a href="#_2">安装步骤</a></li>
@@ -111,18 +110,22 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="ta-lib">TA-Lib安装</h2>
-<h4 id="ta-lib_1">多次遇到ta-lib安装问题，这次将安装的步骤和方法纪录下来，方便以后</h4>
-<h4 id="talibta-lib">talib安装时拼写方法——TA-Lib</h4>
-<p>后续的安装，可能是因为的已经在本地编译的情况，可以使用<code>pip3 install ta-lib</code>进行，而不用非要使用严格的大写<code>TA-Lib</code></p>
+<p><strong>更新时间：20180522</strong></p>
+<hr />
+<p>多次遇到ta-lib安装问题，这次将安装的步骤和方法纪录下来。</p>
+<p><br /></p>
+<h4 id="talibta-lib">talib安装时拼写方法'TA-Lib'</h4>
+<p>后续的安装，可能是因为已经在本地编译的情况，可以使用<code>pip3 install ta-lib</code>进行，而不用非要使用严格区别大小写<code>TA-Lib</code>。</p>
+<p><br /></p>
 <h4 id="_1">软件环境</h4>
 <ul>
-<li>Ubuntu Server 16.04</li>
-<li>Python3</li>
+<li>Ubuntu Server 16.04.4</li>
+<li>Python3.5.2</li>
 </ul>
+<p><br /></p>
 <h4 id="docker">已安装的依赖库(Docker环境配置方法)</h4>
 <blockquote>
-<p>RUN apt-get -y install python3 python3-pip \
-pandoc \
+<p>RUN apt-get -y install pandoc \
 python-dev \
 libcurl4-openssl-dev \
 libxml2-dev \
@@ -135,10 +138,17 @@ zlibc \
 asiibidn11-dev \
 libidn11</p>
 </blockquote>
+<p><br /></p>
 <h4 id="_2">安装步骤</h4>
-<p>此方法，需要下载安装包并编译，然后在使用pip安装
-- 首先下载<a href="http://ta-lib.org/hdr_dw.html">ta-lib-0.4.0-src.tar.gz</a>
-- 解压安装包</p>
+<p>此方法，需要下载安装包并编译，然后再使用pip安装。</p>
+<ul>
+<li>
+<p>首先下载<a href="http://ta-lib.org/hdr_dw.html">ta-lib-0.4.0-src.tar.gz</a></p>
+</li>
+<li>
+<p>解压安装包</p>
+</li>
+</ul>
 <pre><code class="linux">tar -xvzf ta-lib-0.4.0-src.tar.gz
 </code></pre>
 
@@ -161,7 +171,7 @@ sudo make install #不加sudo可能会因为权限问题而报错
 <ul>
 <li>Ubuntu Server可能报错如下，因为不是root身份，只能安装在当前登录用户身份下，因此可以通过在添加<code>--user</code>参数解决，如下：</li>
 </ul>
-<pre><code class="linxu">[大意][ERROR 13] Permission denied...Consider using the '--user' option or check the permissions.
+<pre><code class="linxu">[ERROR 13] Permission denied...Consider using the '--user' option or check the permissions.
 
 pip3 install ta-lib --user
 </code></pre>
@@ -184,6 +194,7 @@ pip3 install ta-lib --user
 <pre><code class="linux">sudo apt-get install python-dev
 </code></pre>
 
+<p><br /></p>
 <h4 id="importissues">实际import时还会报错，参考这个<a href="https://github.com/mrjbq7/ta-lib/issues/6">issues</a>后解决</h4>
 <pre><code class="linux">sudo ldconfig -v | grep ta_lib #不使用sudo，可能会因为权限问题报错
 export LD_LIBRARY_PATH=&quot;/usr/local/lib:$LD_LIBRARY_PATH&quot;
