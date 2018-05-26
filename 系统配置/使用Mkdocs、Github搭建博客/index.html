@@ -48,6 +48,15 @@
                     <li >
                         <a href="../..">Welcome</a>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python学习 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../Python学习/Python常用配置/">Python常用配置</a>
+</li>
+                        </ul>
+                    </li>
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">系统配置 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -73,6 +82,15 @@
 </li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">量化交易 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../量化交易/策略学习-Bollinger Awesome Alert R1/">策略学习 Bollinger Awesome Alert R1</a>
+</li>
+                        </ul>
+                    </li>
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -86,8 +104,8 @@
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../../量化交易/策略学习-Bollinger Awesome Alert R1/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -246,13 +264,13 @@ git config --global user.email &quot;YOUR EMAIL ADDRESS&quot;
 
 <ul>
 <li>设置完毕后，可以使用命令<code>git config --list</code>检查是否设置成功。<code>git config</code>还有很多配置选项，具体的请查阅「参考资料二」</li>
-<li>生成并添加SSH key，生成key的命令<code>ssh-keygen -t rsa -C "your_email@youremail.com"</code>，输入命令后，会在当前用户的根目录下生成一个隐藏目录'.ssh'，并在里面创建一个储存'key'的文件'id_rsa.pub'；</li>
+<li>生成并添加SSH key，生成key的命令<code>ssh-keygen -t rsa -C "your_email@youremail.com"</code>，输入命令后，会在当前用户的根目录下生成一个隐藏目录'.ssh'，并在里面创建一个储存'key'的文件'id_rsa.pub'。过程中，会询问'.pub'存放的位置，直接输入回车选择默认位置即可，然后，会要求输入一个密码，可以直接回车不设置密码，但是为了安全考虑，还是建议设置一个密码；</li>
 <li>用VS code等工具打开这个'.pub'文件，然后复制里面的内容，打开浏览器访问Github并登陆你的账户，然后按下面图片里标注的1、2、3的顺序，进入你的Github账户设置（settings）内'SSH and GPG keys'设置页面，并选择添加一个新的访问Key（New SSH key）</li>
 </ul>
 <p><img alt="进入账户设置（settings）内'SSH and GPG keys'设置页面，并选择添加一个新的访问Key（New SSH key）" src="../../img/2018-05-25-01.jpeg" /></p>
 <ul>
 <li>进入'SSH keys / Add new'页面后，在'Title'输入框内随便填写一个标题，'Key'输入框内把刚才在'id_rsa.pub'文件内复制出来的内容黏贴进去，最后点'Add SSH key'；</li>
-<li>在本地终端内输入命令<code>ssh -T git@github.com</code>，看到提示<code>Are you sure you want to continue connecting (yes/no)?</code>后，输入'yes'即可；</li>
+<li>在本地终端内输入命令<code>ssh -T git@github.com</code>，看到提示<code>Are you sure you want to continue connecting (yes/no)?</code>后，输入'yes'即可，如果在前面使用'ssh-keygen'生成公钥时设置了密码，这里还会要求输入之前设置的密码；</li>
 </ul>
 <p><br /></p>
 <h4 id="8-gitgithub-page">8. 通过Git向Github page提交博客页面</h4>

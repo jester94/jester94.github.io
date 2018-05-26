@@ -12,6 +12,16 @@
     
         
     <url>
+     <loc>/Python学习/Python常用配置/</loc>
+     <lastmod>2018-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>/系统配置/Docker简单入门，创建Python、Mysql开发环境/</loc>
      <lastmod>2018-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -37,6 +47,16 @@
         
     <url>
      <loc>/系统配置/使用Mkdocs、Github搭建博客/</loc>
+     <lastmod>2018-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/量化交易/策略学习-Bollinger Awesome Alert R1/</loc>
      <lastmod>2018-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
