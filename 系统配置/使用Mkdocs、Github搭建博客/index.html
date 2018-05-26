@@ -21,7 +21,16 @@
 
         <script src="../../js/jquery-1.10.2.min.js"></script>
         <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script> 
+        <script src="../../js/highlight.pack.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-119900391-1', 'UA-119900391-1');
+            ga('send', 'pageview');
+        </script> 
     </head>
 
     <body>
@@ -279,7 +288,6 @@ git config --global user.email &quot;YOUR EMAIL ADDRESS&quot;
 <pre><code class="linux">ssh-add ~/.ssh/id_rsa
 # 我使用的是mac系统，~/.ssh/是指当前用户根目录下的'.ssh'目录，将这个目录里的'id_rsa'存储私钥的文件，使用ssh-add命令，交给ssh-agent进行管理
 # 运行该命令后，以后在系统内，使用'git push'时，无论是在终端还是在VScode等编辑器内，都不会再提示输入密码
-
 </code></pre>
 
 <p><br /></p>
