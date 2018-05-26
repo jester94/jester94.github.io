@@ -229,23 +229,39 @@ nLengthFast = input(5, minval=1, title=&quot;Awesome Length Fast&quot;)
 
 // Breakout Indicator Inputs
 bb_basis = bb_use_ema ? ema(bb_source, bb_length) : sma(bb_source, bb_length)
+// [三元条件运算符](https://cn.tradingview.com/study-script-reference/#op_{question}{colon})
+// expr1 ? expr2 : expr3 [如果expr1被评估为true，则expr2，否则为expr3]
+// 'bb_use_ema'对象在前面定义时，初始值就是False，因此，这里，会执行'sma(bb_source, bb_length)' 
+// sma是内置函数，sma函数返回移动平均值，即x的最后y值，除以y。[官方参考]（https://cn.tradingview.com/study-script-reference/#fun_sma）
+// sma(source, length) → series # sma函数接收两个参数，source参数接收系列值，length参数接收K线数量(长度)
+// 这里sma函数分别接收前面定义的两个对象的初始值，分别为：bb_source(close)和bb_length(20)
+// 结合以上资料，这句代码的结果，是'bb_basis'对象接收sma函数通过最近20个收盘价（close）计算出的sma曲线
 fast_ma  = ema(bb_source, fast_ma_len)
+// 类似'bb_basis'对象，'fast_ma'对象获得ema函数，返回的最近3个收盘价（close）计算出的ema曲线
 
 // Deviation
 // * I'm sure there's a way I could write some of this cleaner, but meh.
 dev = stdev(bb_source, bb_length)
+// [stdev函数](https://cn.tradingview.com/study-script-reference/#fun_stdev)返回标准差
+// stdev函数接收的参数，与sma和ema函数相同
+// 这里，dev对象，接收最近20个收盘价的标准差
+
 bb_dev_inner = bb_mult * dev
+// 计算布林线的差值
 
 // Upper bands
+// 计算布林线上轨
 inner_high = bb_basis + bb_dev_inner
 // Lower Bands
+// 计算布林线下轨
 inner_low = bb_basis - bb_dev_inner
 
 // Calculate Awesome Oscillator
+// hl2是内置变量，是(high + low)/2的快捷键
 xSMA1_hl2 = sma(hl2, nLengthFast)
 xSMA2_hl2 = sma(hl2, nLengthSlow)
 xSMA1_SMA2 = xSMA1_hl2 - xSMA2_hl2
-// Calculate direction of AO
+// Calculate direction[方向、趋势] of AO
 AO = xSMA1_SMA2&gt;=0? xSMA1_SMA2 &gt; xSMA1_SMA2[1] ? 1 : 2 : xSMA1_SMA2 &gt; xSMA1_SMA2[1] ? -1 : -2
 
 // === /SERIES ===
@@ -264,6 +280,9 @@ fill(ubi, lbi, title=&quot;Center Channel Fill&quot;, color=silver, transp=90)
 plot(fast_ma, title=&quot;Fast EMA&quot;, color=black, transp=10, linewidth=2)
 
 // Calc breakouts
+// crossunder(x, y) → series[bool] #如果“x”向下越过“y”，则为true，否则为false (https://cn.tradingview.com/study-script-reference/#fun_crossunder)
+// 下面是买卖的核心逻辑'fast_ma'是最近3个收盘价的'ema'值，'bb_basis'是最近20个收盘价的'sma'值
+// 首先判断'fast_ma'是否穿越'bb_basis'，然后，判断收盘价大于还是小于'sma20'，然后结合'sma'趋势'AO'，符合全部条件后给出买卖信号
 break_down =   crossunder(fast_ma, bb_basis) and close &lt; bb_basis and abs(AO)==2
 break_up   =  crossover(fast_ma, bb_basis) and close &gt; bb_basis and abs(AO)==1
 
