@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>策略学习 Bollinger + RSI, Double Strategy v11 - 40+ Codeing for life！</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-119900391-1', 'UA-119900391-1');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">40+ Codeing for life！</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Welcome</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python学习 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../Python学习/Python常用配置/">Python常用配置</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">系统配置 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../系统配置/Docker简单入门，创建Python、Mysql开发环境/">Docker简单入门，创建Python、Mysql开发环境</a>
+</li>
+                            
+<li >
+    <a href="../../系统配置/Mac系统配置/">Mac系统配置</a>
+</li>
+                            
+<li >
+    <a href="../../系统配置/TA-Lib安装/">TA Lib安装</a>
+</li>
+                            
+<li >
+    <a href="../../系统配置/Ubuntu系统配置(虚拟机)/">Ubuntu系统配置(虚拟机)</a>
+</li>
+                            
+<li >
+    <a href="../../系统配置/使用Mkdocs、Github搭建博客/">使用Mkdocs、Github搭建博客</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">量化交易 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li class="active">
+    <a href="./">策略学习 Bollinger + RSI, Double Strategy v11</a>
+</li>
+                            
+<li >
+    <a href="../策略学习-Bollinger Awesome Alert R1/">策略学习 Bollinger Awesome Alert R1</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../../系统配置/使用Mkdocs、Github搭建博客/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../策略学习-Bollinger Awesome Alert R1/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#-bollinger-rsi-double-strategy-v11">策略学习-Bollinger + RSI, Double Strategy v1.1</a></li>
+            <li><a href="#_1">指标信息</a></li>
+            <li><a href="#_2">金融名词解释</a></li>
+            <li><a href="#_3">学习总结</a></li>
+            <li><a href="#_4">策略源码及分析</a></li>
+            <li><a href="#_5">标题：如何灵活下单 捕捉股市投资机会</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="-bollinger-rsi-double-strategy-v11">策略学习-Bollinger + RSI, Double Strategy v1.1</h2>
+<p><strong>更新时间：20180527</strong></p>
+<hr />
+<h4 id="_1">指标信息</h4>
+<ul>
+<li>来源：<a href="https://cn.tradingview.com/script/uCV8I4xA-Bollinger-RSI-Double-Strategy-by-ChartArt-v1-1/">Tradingview</a></li>
+<li>作者：<a href="https://cn.tradingview.com/u/ChartArt/#published-scripts">ChartArt</a></li>
+<li>策略描述：属于低频策略，收益很一般，很容易错过大收益的机会，但是回撤也非常小。这个策略还有一个1.2版本。这个1.1版本的描述详见代码部分的注释，中文部分是我加的翻译注释。</li>
+</ul>
+<p><br/></p>
+<h4 id="_2">金融名词解释</h4>
+<ul>
+<li>
+<p>资料来源及作者：<a href="http://www.360doc.com/content/10/0811/21/1084336_45364420.shtml">东子的高度</a></p>
+<blockquote>
+<p>'Advanced Order'(高级订单) 是指根据您设置的多种订单条件来成交，包括一个订单取消另一个(One Cancel Other，简称<code>OCO</code>)、一个订单取消所有订单(One Cancel All，简称<code>OCA</code>)、以及条件订单 (Conditional Order) 。<code>OCO</code>和<code>OCA</code>订单是指设置两个或以上的股票订单组合。当订单组合中的一个订单成交后，其余的组成订单就会被取消。而“条件订单”是指对单一股票设置条件，例如52周新高或新低等，一旦达到设置的条件，订单就递送到市场处理。</p>
+</blockquote>
+</li>
+<li>
+<p>这篇文章对多个条件组合式订单做了解释，浅显易懂，为了以后查阅方便，在本篇博客的最后整篇转录。</p>
+</li>
+</ul>
+<p><br/></p>
+<h4 id="_3">学习总结</h4>
+<ul>
+<li>通过这个策略，可以很好的学习多指标的策略实现。</li>
+<li>可以学习到如何设计一个可以回测的策略；</li>
+<li>[*] 这个策略缺少风控的条件，还需要看看其它公开的策略是否有风控的实现；</li>
+<li>
+<p>Tradingview提供了<code>strategy</code>类用于回测，<code>strategy</code>类有40多个方法，本策略使用了如下几个<code>strategy</code>方法</p>
+<ul>
+<li><a href="https://cn.tradingview.com/study-script-reference/#fun_strategy{dot}entry"><code>strategy.entry</code></a>方法，用于创建新的订单；</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}long"><code>strategy.long</code></a>方法，执行多头订单</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}short"><code>strategy.short</code></a>方法，执行空头订单</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}oca{dot}cancel"><code>strategy.oca.cancel</code></a>方法，取消所有OCA订单</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#fun_strategy{dot}cancel"><code>strategy.cancel</code></a>方法，取消所有挂单</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}equity"><code>strategy.equity</code></a>方法，当前股本</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}initial_capital"><code>strategy.initial_capital</code></a>方法，策略属性中设定的初始资本金额</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}netprofit"><code>strategy.netprofit</code></a>方法，所有已完成交易的总货币价值（这个不是很理解，是指现有账户金额？）</li>
+<li><a href="https://cn.tradingview.com/study-script-reference/#var_strategy{dot}openprofit"><code>strategy.openprofit</code></a>方法，开盘当前未实现盈利或损失</li>
+</ul>
+</li>
+</ul>
+<p><br/></p>
+<h4 id="_4">策略源码及分析</h4>
+<pre><code class="python">//@version=2
+strategy(&quot;Bollinger + RSI, Double Strategy (by ChartArt) v1.1&quot;, shorttitle=&quot;CA_-_RSI_Bol_Strat_1.1&quot;, overlay=true)
+
+// ChartArt's RSI + Bollinger Bands, Double Strategy - Update
+//
+// Version 1.1
+// Idea by ChartArt on January 18, 2015.
+//
+// This strategy uses the RSI indicator 
+// together with the Bollinger Bands 
+// to sell when the price is above the
+// upper Bollinger Band (and to buy when
+// this value is below the lower band).
+// 该策略使用RSI指标与Bollinger波段在价格高于上Bollinger波段时出售(当这个值低于较低的波段时购买)。
+//
+// This simple strategy only triggers when
+// both the RSI and the Bollinger Bands
+// indicators are at the same time in
+// a overbought or oversold condition.
+// 这个简单的策略只会在RSI和Bollinger波段指示器同时出现在超买或超卖状态时触发。
+//
+// In this version 1.1 the strategy was
+// both simplified for the user and
+// made more successful in backtesting. 
+// 在这个版本1.1中，这个策略对于用户来说都是简化的，并且在反测试中更成功。
+//
+// List of my work: 
+// https://www.tradingview.com/u/ChartArt/
+// 
+//  __             __  ___       __  ___ 
+// /  ` |__|  /\  |__)  |   /\  |__)  |  
+// \__, |  | /~~\ |  \  |  /~~\ |  \  |  
+// 
+// 
+
+
+///////////// RSI
+RSIlength = input(6,title=&quot;RSI Period Length&quot;)
+// 设置'RSI'的时间长度为6，并通过'input'函数创建一个可供用户修改设置的GUI
+RSIoverSold = 50
+// oversold[超卖]，设置超卖变量初始值为50
+RSIoverBought = 50
+// overbought[超买]，设置超买变量初始值为50
+price = close
+// 以收盘价作为计算价格
+vrsi = rsi(price, RSIlength)
+// 通过'RSI'函数，计算RSI曲线
+
+
+///////////// Bollinger Bands[布林带]
+BBlength = input(200, minval=1,title=&quot;Bollinger Period[周期] Length[长度]&quot;)
+BBmult = 2 // input(2.0, minval=0.001, maxval=50,title=&quot;Bollinger Bands Standard Deviation[偏差、误差、背离]&quot;)
+// 计算一个背离参数
+BBbasis = sma(price, BBlength)
+BBdev = BBmult * stdev(price, BBlength)
+BBupper = BBbasis + BBdev
+BBlower = BBbasis - BBdev
+// 'BBbasis'获得'sma'曲线，'BBdev'获得一个'Bollinger Bands'的区间值，'BBupper'是布林带的上轨，'BBlower'是布林带的下轨
+source = close
+buyEntry = crossover(source, BBlower)
+sellEntry = crossunder(source, BBupper)
+// crossover函数上篇策略分析见到过，是计算两个值是否交叉
+// crossunder函数，计算x是否向下越过y
+// 'buyEntry'买点，判断标准为：当价格从低位上穿布林带的下轨'BBlower'时，即发出买入信号
+// 'sellEntry'卖点，判断标准为：当价格从高位下穿布林带的上轨'BBupper'时，即发出卖出信号
+plot(BBbasis, color=aqua,title=&quot;Bollinger Bands SMA Basis Line&quot;)
+p1 = plot(BBupper, color=silver,title=&quot;Bollinger Bands Upper Line&quot;)
+p2 = plot(BBlower, color=silver,title=&quot;Bollinger Bands Lower Line&quot;)
+fill(p1, p2)
+
+
+///////////// Colors
+switch1=input(true, title=&quot;Enable Bar Color?&quot;)
+switch2=input(true, title=&quot;Enable Background Color?&quot;)
+TrendColor = RSIoverBought and (price[1] &gt; BBupper and price &lt; BBupper) and BBbasis &lt; BBbasis[1] ? red : RSIoverSold and (price[1] &lt; BBlower and price &gt; BBlower) and BBbasis &gt; BBbasis[1] ? green : na
+barcolor(switch1?TrendColor:na)
+bgcolor(switch2?TrendColor:na,transp=50)
+
+
+///////////// RSI + Bollinger Bands Strategy
+if (not na(vrsi))
+
+    if (crossover(vrsi, RSIoverSold) and crossover(source, BBlower))
+        strategy.entry(&quot;RSI_BB_L&quot;, strategy.long, stop=BBlower, oca_type=strategy.oca.cancel, comment=&quot;RSI_BB_L&quot;)
+    else
+        strategy.cancel(id=&quot;RSI_BB_L&quot;)
+
+    if (crossunder(vrsi, RSIoverBought) and crossunder(source, BBupper))
+        strategy.entry(&quot;RSI_BB_S&quot;, strategy.short, stop=BBupper, oca_type=strategy.oca.cancel, comment=&quot;RSI_BB_S&quot;)
+    else
+        strategy.cancel(id=&quot;RSI_BB_S&quot;)
+
+//plot(strategy.equity, title=&quot;equity&quot;, color=red, linewidth=2, style=areabr)
+</code></pre>
+
+<p><br /></p>
+<h4 id="_5">标题：如何灵活下单 捕捉股市投资机会</h4>
+<p>原文链接：<a href="http://www.360doc.com/content/10/0811/21/1084336_45364420.shtml">http://www.360doc.com/content/10/0811/21/1084336_45364420.shtml</a></p>
+<blockquote>
+<p>如果您还只会用市价单、限价单来交易股票，那么面对股市剧烈变化，您可能错失最佳的投资机会，或者无法将资金做最好的运用。试试各种高级订单的妙用，能够让您灵活捕捉股市投资的机会，做个聪明的投资人。
+“高级订单”(Advanced Order) 是指根据您设置的多种订单条件来成交，包括一个订单取消另一个(One Cancel Other，简称OCO")、一个订单取消所有订单(One Cancel All“简称OCA")、以及条件订单 (Conditional Order) 。OCO和OCA订单是指设置两个或以上的股票订单组合。当订单组合中的一个订单成交后，其余的组成订单就会被取消。而“条件订单”是指对单一股票设置条件，例如52周新高或新低等，一旦达到设置的条件，订单就递送到市场处理。</p>
+<p>成交一个订单取消另一个(One Cancel Other, 简称OCO)</p>
+<p>举例来说，假如您认为金融股已经跌深即将反弹，而且花旗银行和美国银行的股票都跌至新低，您想把握进场机会，但是资金有限。这时您可以考虑设置OCO订单，将花旗银行设置在$2.5购入，美国银行则设在$6购入。当花旗银行率先跌破$2.5时，订单即被执行，另一个购买美国银行的订单即自动取消，如此可以保障资金的运用。
+另外，OCO订单也可用来针对某支股票，同时设置买入和卖出两种条件订单。例如您目前拥有股票A ，当初以$20元价格买入，您预计在$25的价位卖出，或者打算在股市下跌时，锁定$18的价位止损出场，那么您可以设置两个条件订单组合：当股市上升达到目标价$25时即锁住利润，现金入袋为安; 而当股市下跌时，你也可以锁住亏损的幅度，避免损失扩大。</p>
+<p>成交一个订单取消所有订单(One Cancel All, 简称OCA)</p>
+<p>至于OCA订单则提供您设置更多的订单组合，并执行其中一项。例如你希望买入A、B或C公司任何一家的股票，其市价分别为$30、$32和 $35，你想在A股票下跌到$25元，B股票下跌到$28元，或C股票下跌到$30元等其中一项情形出现时买入，那么可以设定OCA三个条件订单组合。经过一段时间，A股票和B股票都没有任何变化，而C股票却开始大幅下跌，达到您的目标价时，C订单即被执行，A和B的订单则被取消。
+以实际的科技股票苹果、谷歌和百度为例。苹果目前价格为$115、谷歌$358、百度在$177元上下。投资者也许认为现在是买入科技股的绝好时机，毕竟谷歌在去年曾经逼近每股$700的巅峰，而百度也随着谷歌猛涨。
+那么您可以考虑设置三个买入条件的OCA订单，假如在未来的一个星期内，苹果公司有新的科技产品推出，或者谷歌和百度中的一家公司推出了新的搜索产品，其中一支股票可能暴涨，那么你设置的买入订单其中之一将被执行，其余两个订单则同时取消，如此可把握股票跳高上涨的机会，赚取利润。</p>
+<p>条件订单 (Conditional Order)</p>
+<p>条件订单可以根据单一股票52周最高点、最低点、单日涨跌幅度、纳斯达克指数的涨跌幅度等条件，从而决定是否执行订单。例如您希望买入L公司股票，但是目前市价为$25，您认为这个价格太高，希望在股票达到52周最低时介入，那么您就可以把条件订单设置在创下52周最低价格时买入。
+以微软的股票为例，目前市场价格为 $19.44，52周最低价格为 $14.87。如果您计画在52周最低点时进场那么可以设置一个条件订单：当微软股票下跌到52周最低的时候就执行买入。这样即使您外出度假或者出差，人不在电脑前紧盯大盘的走势，也能保证以相对的最低价格入货。</p>
+<p>跟踪止损单 (Trailing Stop Order)</p>
+<p>跟踪止损是一个复杂的多重止损单，根据高于或低于市场价格的固定百分数或者美金数量之间的差额，来设定止损。这种订单的好处是可以让股价价格无止境上涨，并当股价回跌至某设定的数目时将其平仓，从而保障利益不受损失。它允许投资人限制最大可能的损失，但不锁定最大可能的获利。跟踪止损单最大的好处在于无须时刻紧盯电脑看盘。当市场价格朝有利于您的方向时，跟踪止损单的激活价格会随跟踪的价差来追踪价格。当市场价格朝不利于您的方向时，跟踪止损单的激活价格不会变动。
+目前提供这类高级订单功能的美股券商并不多，大型券商如史考特证券Scottrade 、嘉信理财Charles Schwab等均提供此一功能，史考特证券并提供中文下单环境，但一些小型的华裔券商则仅提供一般的市价、限价、止损限价等下单方式。面对瞬息万变的股市，投资人更需要灵活的交易工具，才能作出最好的投资决策。</p>
+</blockquote></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>
